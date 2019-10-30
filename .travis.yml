@@ -16,4 +16,4 @@ deploy:
   script: bash docker-deploy.sh
   skip_cleanup: true
   on:
-    repo: jdd04026/test
+    branch: master
