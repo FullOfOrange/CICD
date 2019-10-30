@@ -1,12 +1,12 @@
 # --- FROM 명령어가 최상단에 위치하여야 합니다.
-FROM node:10.16.3
+FROM node:12.13.0-alpine
 
 RUN pwd
-COPY node-project/package.json /src/package.json
+COPY server/package.json /src/package.json
 # --- 미리 npm install 을 실행할 수 있습니다.
 RUN cd /src; npm install
 
-COPY node-project /src
+COPY server /src
 
 WORKDIR /src
 
