@@ -17,4 +17,3 @@ deploy:
   skip_cleanup: true
   on:
     repo: jdd04026/test
-    tags: true
