@@ -1,5 +1,5 @@
 # User add
-DS_Store
+.DS_Store
 Logs
 logs
 node_modules
