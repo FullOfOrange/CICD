@@ -4,7 +4,7 @@ FROM node:12.13.0-alpine
 COPY package.json /src/package.json
 RUN cd /src; npm install
 
-COPY server /src/server
+COPY src /src/server
 COPY test /src/test
 WORKDIR /src
 
