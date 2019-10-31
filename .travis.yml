@@ -15,5 +15,3 @@ deploy:
   provider: script
   script: bash docker_deploy.sh
   skip_cleanup: true
-  on:
-    branch: master
