@@ -12,10 +12,11 @@ env:
   - secure: BM7X3E5n7i9oqUrkVQaqcOFTAVcg2KDEwJpno90j4GN5m/cMbe4os5vPyXHuWpeOApn30uSdTm9c64rNQ/PM5tmNo6DygUrtakHT1RAlSIs4nj8u/s4XvbsE9pmRR32OkvFH75YdxUtv9dm2t4kqm6FUKwvFyZTJdlBBKiOlqiXzyMB4hzo/ptLAl6GU5gUoiATRjrr2dLAigIy0BF6KWEyKMKIJlsKy7rp3EfrblhvCpRphBJ70EfNlvfPbjt10blRWADLcCYiyAP/Pac9/C9TE84oKms1hnD5LQXoCy4nL9z21u1yTuvFVR2XiyjgBp9Fd61QPe+GntiBBU7D4Kv+XTp3wM7x6ED5LUUiLr8TShQApgGhHGUVBOyr+y+qQRTPaVMTOdOX1ac0VwOeyCCLQeHKCSjw086vY2x4vqK6bb5347gSA9U+nL5WUunp82IoENx36LvCpDoYwsK8StaqpPTYEnTO2sVaOua3AyibyZt6ETSgmjOBrMBaZfkXh1z5L49PtkmowNACDcIu+5Gv+AjGbascDD7m8Iy4oPcDNrYXlxWPBvuavRlDo0V35y2Te90rN8zd34yUHUP120Z2BXeALRX6eozjGFR+rNm3GqSNi3GcmjGqPSGMpzX7lBFLxVJJ3ybfv0wzyLi0j9XIM7ZLcZ0o/W4mw7fnCh1g=
 
 before_script:
-  - docker build -t "${DOCKER_USER}"/"${IMAGE_NAME}":"${IMAGE_TAG}" .
+  - docker build -t "${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}" .
 
 script:
-  - docker run -it "${DOCKER_USER}"/"${IMAGE_NAME}":"${IMAGE_TAG}" npm run test
+  - echo "$DOCKER_USER"
+  - docker run -it "${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}" npm run test
 
 before_deploy:
   - docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
