@@ -1,20 +1,14 @@
 const express = require('express');
-const uuid = require('uuid');
-
 const app = express();
 const port = 3000;
 
-const makeUUID = () => {
-	const id = uuid.v4();
-	return () => id;
-}
+const { makeUUID } = require('./bin/uuid.js');
 
 app.get('/', (req,res) => {
-	res.send(id);
+	const getUUID = makeUUID();
+	res.send(getUUID());
 });
 
-app.listen(port, () => {});
+app.listen(port);
 
-module.exports = {
-	makeUUID
-}
+module.exports = app;
