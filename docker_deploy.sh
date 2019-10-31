@@ -1,3 +1,6 @@
+echo $DOCKER_USER
+echo $DOCKER_PASS
+
 docker login -u $DOCKER_USER -p $DOCKER_PASS
 
 docker build -t jdd04026/test:0.0.1 .
