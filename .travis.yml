@@ -19,7 +19,7 @@ script:
   - docker run -it "${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}" npm run test
 
 before_deploy:
-  - docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${IMAGE_TAG}"
 
