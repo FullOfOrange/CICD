@@ -1,11 +1,8 @@
-echo $DOCKER_USER
-echo $DOCKER_PASS
+echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 
-docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+docker build -t $DOCKER_USER/test:0.0.1 .
 
-docker build -t jdd04026/test:0.0.1 .
+docker tag $DOCKER_USER/test:0.0.1 $DOCKER_USER/test:latest
 
-docker tag jdd04026/test:0.0.1 jdd04026/test:latest
-
-docker push jdd04026/test:0.0.1
-docker push jdd04026/test:latest
+docker push $DOCKER_USER/test:0.0.1
+docker push $DOCKER_USER/test:latest
