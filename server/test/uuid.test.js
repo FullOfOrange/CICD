@@ -1,6 +1,12 @@
-const { makeUUID } = require('../server/bin/uuid.js')
+const app = require('../src');
+const { makeUUID } = require('../bin/uuid.js');
 
-test('UUID 테스트', () => {
-    const getuuid = makeUUID();
-    expect(getuuid()).toBe(getuuid());
+describe('Express GET /', () => {
+    it('should return uuid', (done) => {
+        const getUUID = makeUUID()
+        request(app).get('/').then((response) => {
+            expect(response.text).toBe(getUUID());
+            done();
+        })
+    })
 })
