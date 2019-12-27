@@ -1,4 +1,4 @@
-# deploy_test
+# CICD
 CI/CD 를 테스트해보기 위한 Repository
 
 ### 빌드 스택
